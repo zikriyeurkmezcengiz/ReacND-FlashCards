@@ -5,15 +5,15 @@ ReactND-FlashingCards is A React Native app for iOS and Android that allows user
 Mobile Flashcards is the third of three projects required for Udacity's React Nanodegree program.
 
 # Installation
-<hr/>
-Clone the repository, change directories, and use npm or yarn to install the dependencies.
 
-$ git clone https://github.com/zikriyeurkmezcengiz/ReactND-FlashingCards.git
+Clone the repository, and use npm or yarn to install the dependencies.
+
+$ git clone https://github.com/zikriyeurkmezcengiz/ReactND-FlashingCards.git </br>
 $ yarn 
 
 
 # Usage
-<hr/>
+
 The project can be run with npm or yarn
 
 * yarn start or npm start
