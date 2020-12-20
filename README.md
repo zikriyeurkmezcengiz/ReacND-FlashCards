@@ -4,7 +4,7 @@ ReactND-FlashingCards is A React Native app for iOS and Android that allows user
 
 Mobile Flashcards is the third of three projects required for Udacity's React Nanodegree program.
 
-#Installation
+# Installation
 <hr/>
 Clone the repository, change directories, and use npm or yarn to install the dependencies.
 
@@ -12,7 +12,7 @@ $ git clone https://github.com/zikriyeurkmezcengiz/ReactND-FlashingCards.git
 $ yarn 
 
 
-#Usage
+# Usage
 <hr/>
 The project can be run with npm or yarn
 
@@ -26,7 +26,7 @@ Scan the QR Code using the Expo Client app (Expo Client for Android & iOS) from 
 
 * Use an Android Emulator or iOS Simulator to run the app:
 
-  **iOS Simulator Setup
-  **Android Emulator Setup
+ iOS Simulator Setup
+ Android Emulator Setup
 
 
