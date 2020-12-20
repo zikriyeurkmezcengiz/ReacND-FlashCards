@@ -1,6 +1,5 @@
 import { AsyncStorage } from "react-native";
 import { generateUID } from "./helper";
-import { Decks } from "./_DATA";
 
 const FLASHCARDS_STORAGE_KEY = "flashcards_data";
 
