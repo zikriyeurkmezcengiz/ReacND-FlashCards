@@ -20,13 +20,11 @@ The project can be run with npm or yarn
 
 This will open Expo Developer Tools in the browser. You can then do one of the following.
 
-* Use your device to test:
-
-Scan the QR Code using the Expo Client app (Expo Client for Android & iOS) from an Android or iOS device.
+* Use your device to test: Scan the QR Code using the Expo Client app (Expo Client for Android & iOS) from an Android or iOS device.
 
 * Use an Android Emulator or iOS Simulator to run the app:
 
- iOS Simulator Setup
- Android Emulator Setup
+   iOS Simulator Setup
+   Android Emulator Setup
 
 
