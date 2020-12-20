@@ -1,46 +1,6 @@
-import {
-  RECEIVE_DECKS,
-  ADD_DECK,
-  REMOVE_DECK,
-  ADD_CARD,
-  RESET_STORE,
-} from "../actions/index";
+const { combineReducers } = require("redux");
+const { decks } = require("./decks");
 
-import { decks as INITIAL_STATE } from "../utils/_data";
-
-export default function decks(state = {}, action) {
-  switch (action.type) {
-    case ADD_DECK:
-      const { title } = action;
-      return {
-        ...state,
-        [title]: {
-          title,
-          questions: [],
-        },
-      };
-    case RECEIVE_DECKS:
-      return {
-        ...state,
-        ...action.decks,
-      };
-    case REMOVE_DECK:
-      const { id } = action;
-      const { [id]: value, ...remainingDecks } = state;
-
-      return remainingDecks;
-    case ADD_CARD:
-      const { deckId, card } = action;
-      return {
-        ...state,
-        [deckId]: {
-          ...state[deckId],
-          questions: [...state[deckId].questions].concat(card),
-        },
-      };
-    case RESET_STORE:
-      return INITIAL_STATE;
-    default:
-      return state;
-  }
-}
+export const rootReducer = combineReducers({
+  decks,
+});

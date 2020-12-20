@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { gray, green } from "../utils/colors";
+import { gray, green } from "../Util/colors";
 
 export class AddCard extends Component {
   render() {
