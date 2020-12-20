@@ -6,10 +6,12 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { Card, Colors } from "react-native-paper";
-import Main from "../components/Main";
-import { Button, TextHeader, TextInput } from "../components";
+import TextLabel from "../components/TextLabel";
 import { connect } from "react-redux";
 import { handleAddCardToDeck } from "../store/actions/decks";
+import Main from "../components/Main";
+import Button from "../components/Button";
+import TextInput from "../components/TextInput";
 
 class AddCard extends React.Component {
   onAddCardPress() {
@@ -42,14 +44,14 @@ class AddCard extends React.Component {
             <KeyboardAvoidingView behavior="padding">
               <Card style={styles.card}>
                 <Card.Content style={styles.cardContent}>
-                  <TextHeader>What is the title of your card?</TextHeader>
+                  <TextLabel>What is the question ?</TextLabel>
                   <TextInput
                     label="Question"
                     returnKeyType="done"
                     onChangeText={this.handleChange("question")}
                     autoCapitalize="sentences"
                   />
-                  <TextHeader>What is the answer of your card?</TextHeader>
+                  <TextLabel>What is the answer ?</TextLabel>
                   <TextInput
                     label="Answer"
                     returnKeyType="done"
@@ -88,8 +90,8 @@ export default connect(null, mapDispatchToProps)(AddCard);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingRight: 10,
-    paddingLeft: 10,
+    paddingRight: 15,
+    paddingLeft: 15,
     flexDirection: "row",
     alignSelf: "center",
     alignItems: "center",

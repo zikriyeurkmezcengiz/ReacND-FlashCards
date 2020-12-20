@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { View, StatusBar } from "react-native";
 import Constants from "expo-constants";
 import MainNav from "./components/MainNav";
-import { purple } from "./utils/colors";
+import { purple, orange } from "./utils/colors";
 
 function FlashcardStatusBar({ backgroundColor, ...props }) {
   return (

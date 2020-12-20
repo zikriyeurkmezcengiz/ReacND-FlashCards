@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { DefaultTheme, Colors } from "react-native-paper";
 
-const TextHeader = ({ style, children }) => (
+const TextLabel = ({ style, children }) => (
   <Text style={styles.header}>{children}</Text>
 );
 
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextHeader;
+export default TextLabel;

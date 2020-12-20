@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { lightPurple, white } from "../utils/colors";
+import { white, orange } from "../utils/colors";
 
 const Header = ({ title }) => {
   return (
@@ -10,7 +10,7 @@ const Header = ({ title }) => {
         fontSize: 32,
         fontWeight: "bold",
         color: white,
-        backgroundColor: lightPurple,
+        backgroundColor: orange,
         marginVertical: 32,
       }}
     >

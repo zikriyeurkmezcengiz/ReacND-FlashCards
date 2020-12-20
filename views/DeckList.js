@@ -1,10 +1,10 @@
 import React from "react";
 import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
-import { Avatar, Card, Divider, Colors, FAB } from "react-native-paper";
+import { Divider, Colors, FAB } from "react-native-paper";
 import Main from "../components/Main";
 import { connect } from "react-redux";
 import Header from "../components/Header";
-import { lightPurple, white } from "../utils/colors";
+import { white, orange } from "../utils/colors";
 import Deck from "./Deck";
 
 class DeckList extends React.Component {
@@ -28,7 +28,8 @@ class DeckList extends React.Component {
     const { decks } = this.props;
     return (
       <Main>
-        <View style={{ flex: 1, backgroundColor: lightPurple }}>
+        <View style={{ flex: 1, backgroundColor: orange }}>
+          <Header title="Mobile Flash Cards" />
           <ScrollView style={styles.container}>
             {decks &&
               Object.keys(decks).map((id) => (
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     margin: 16,
     right: 0,
     bottom: 0,
-    backgroundColor: lightPurple,
+    backgroundColor: orange,
   },
   text: {
     color: "#fff",

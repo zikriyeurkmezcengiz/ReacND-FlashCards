@@ -1,10 +1,13 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { Button as PaperButton, Colors } from "react-native-paper";
-import { Main, TextHeader, Paragraph, Button } from "../components";
+import Main from "../components/Main";
+import TextLabel from "../components/TextLabel";
 import { connect } from "react-redux";
 import { handleDeleteDeck } from "../store/actions/decks";
 import Header from "../components/Header";
+import Button from "../components/Button";
+import Paragraph from "../components/Paragraph";
 
 class DeckDetail extends React.Component {
   // static navigationOptions = ({ navigation }) => {
@@ -40,7 +43,7 @@ class DeckDetail extends React.Component {
       return (
         <Main>
           <View style={styles.container}>
-            <TextHeader style={styles.deckTitle}>{deck.title}</TextHeader>
+            <TextLabel style={styles.deckTitle}>{deck.title}</TextLabel>
             <Paragraph style={styles.deckCardCount}>
               {deck.questions.length} cards
             </Paragraph>

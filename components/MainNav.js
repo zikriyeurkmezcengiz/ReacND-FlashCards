@@ -6,11 +6,13 @@ import Constants from "expo-constants";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { lightPurple, white } from "../utils/colors";
+import { white, orange } from "../utils/colors";
 import AddCard from "../views/AddCard";
 import NewDeck from "../views/NewDeck";
 import DeckList from "../views/DeckList";
+import Quiz from "../views/Quiz";
 import DeckDetail from "../views/DeckDetail";
+import Deck from "../views/DeckDetail";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 const Tabs =
@@ -38,17 +40,17 @@ const TabNav = () => (
     })}
     tabBarOptions={{
       header: null,
-      activeTintColor: Platform.OS === "ios" ? lightPurple : white,
+      activeTintColor: Platform.OS === "ios" ? orange : white,
       showIcon: Platform.OS === "ios",
       style: {
         height: Platform.OS === "ios" ? 80 : 50,
-        backgroundColor: Platform.OS === "ios" ? white : lightPurple,
+        backgroundColor: Platform.OS === "ios" ? white : orange,
         shadowColor: "rgba(0, 0, 0, 0.24)",
         shadowOffset: {
           width: 0,
           height: 3,
         },
-        shadowRadius: 6,
+        shadowRadius: 10,
         shadowOpacity: 1,
       },
     }}
@@ -72,9 +74,9 @@ const MainNav = () => (
       options={{
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: lightPurple,
+          backgroundColor: orange,
         },
-        headerTitleStyle: { width: Dimensions.get("window").width },
+        headerTitleStyle: { flex: 1, paddingTop: 12 },
       }}
     />
     <Stack.Screen
@@ -83,9 +85,41 @@ const MainNav = () => (
       options={{
         headerTintColor: white,
         headerStyle: {
-          backgroundColor: lightPurple,
+          backgroundColor: orange,
         },
-        headerTitleStyle: { width: Dimensions.get("window").width },
+        headerTitleStyle: {
+          flex: 1,
+          paddingTop: 12,
+        },
+      }}
+    />
+    <Stack.Screen
+      name="Quiz"
+      component={Quiz}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: orange,
+        },
+        headerTitleStyle: {
+          flex: 1,
+          paddingTop: 12,
+        },
+      }}
+    />
+
+    <Stack.Screen
+      name="Deck"
+      component={Deck}
+      options={{
+        headerTintColor: white,
+        headerStyle: {
+          backgroundColor: orange,
+        },
+        headerTitleStyle: {
+          flex: 1,
+          paddingTop: 12,
+        },
       }}
     />
   </Stack.Navigator>

@@ -7,11 +7,13 @@ import {
 } from "react-native";
 import { Card, Colors } from "react-native-paper";
 import Main from "../components/Main";
-import { TextHeader, Button, TextInput } from "../components";
-
+import TextLabel from "../components/TextLabel";
 import { connect } from "react-redux";
 import { handleAddDecks, resetNewDeckId } from "../store/actions/decks";
-
+import Header from "../components/Header";
+import { white, orange } from "../utils/colors";
+import Button from "../components/Button";
+import TextInput from "../components/TextInput";
 class NewDeck extends React.Component {
   state = {
     deckTitle: "",
@@ -29,10 +31,11 @@ class NewDeck extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.newDeckId !== this.props.newDeckId) {
-      this.props.navigation.navigate("DeckSingle", {
+      this.props.navigation.navigate("Deck", {
         deckId: nextProps.newDeckId,
         title: this.state.deckTitle,
       });
+
       this.setState({ deckTitle: "" });
     }
   }
@@ -40,12 +43,13 @@ class NewDeck extends React.Component {
   render() {
     return (
       <Main>
-        <View style={styles.container}>
-          <ScrollView>
+        <View style={{ flex: 1, backgroundColor: orange }}>
+          <Header title="New Deck" />
+          <ScrollView style={styles.container}>
             <KeyboardAvoidingView behavior="padding">
               <Card style={styles.card}>
                 <Card.Content style={styles.cardContent}>
-                  <TextHeader>What is the title of your new deck?</TextHeader>
+                  <TextLabel>What is the title of new deck?</TextLabel>
                   <TextInput
                     label="Deck Title"
                     returnKeyType="done"
@@ -93,11 +97,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(NewDeck);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    alignSelf: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: Colors.grey100,
+    backgroundColor: white,
+    paddingTop: 10,
   },
   card: {
     flex: 1,
