@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Button as PaperButton } from "react-native-paper";
 import { DefaultTheme } from "react-native-paper";
-import { orange } from "../utils/colors";
 
 const Button = ({ mode, style, children, ...props }) => (
   <PaperButton
@@ -22,12 +21,12 @@ const Button = ({ mode, style, children, ...props }) => (
 const styles = StyleSheet.create({
   button: {
     width: "100%",
-    marginVertical: 10,
+    marginVertical: 5,
   },
   text: {
+    fontSize: 16,
+    lineHeight: 30,
     fontWeight: "bold",
-    fontSize: 15,
-    lineHeight: 26,
   },
 });
 

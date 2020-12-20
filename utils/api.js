@@ -1,107 +1,73 @@
 import { AsyncStorage } from "react-native";
 import { generateUID } from "./helper";
+import { Decks } from "./_DATA";
 
 const FLASHCARDS_STORAGE_KEY = "flashcards_data";
 
 function initialData() {
   return {
-    "632mgp7hm68vzvg2amz1hq": {
-      id: "632mgp7hm68vzvg2amz1hq",
-      title: "React",
+    "6h5ims9iks66d4m7kqizmv": {
+      id: "6h5ims9iks66d4m7kqizmv",
+      title: "Javascript",
+      createdAt: new Date("10/21/2020"),
       questions: [
         {
-          question: "What is ReactJS?",
+          question:
+            "Can you name two programming paradigms important for JavaScript app developers?",
           answer:
-            "ReactJS is an open-source frontend JavaScript library which is used for building user interfaces, specifically for single page applications.",
+            "JavaScript is a multi-paradigm language, supporting imperative/procedural programming along with OOP (Object-Oriented Programming) and functional programming. JavaScript supports OOP with prototypal inheritance.",
+        },
+        {
+          question: 'What is the purpose of "This" operator in JavaScript?',
+          answer:
+            "The JavaScript this keyword refers to the object it belongs to. This has different values depending on where it is used. In a method, this refers to the owner object and in a function, this refers to the global object.",
+        },
+        {
+          question: " What is Closure?",
+          answer:
+            "The combination of a function and the lexical environment within which that function was declared.",
+        },
+      ],
+    },
+    "6h5ims9iks66d4m7kqizmc": {
+      id: "6h5ims9iks66d4m7kqizmc",
+      title: "React",
+      createdAt: new Date("10/20/2020"),
+      questions: [
+        {
+          question: "What is React",
+          answer: "A library for managing user interfaces",
         },
         {
           question: "What is JSX?",
           answer:
-            "JSX is a syntax notation for JavaScript XML(XML-like syntax extension to ECMAScript). It stands for JavaScript XML.",
+            "JSX is a syntax extension to JavaScript and comes with the full power of JavaScript. JSX produces React “elements”. You can embed any JavaScript expression in JSX by wrapping it in curly braces. After compilation, JSX expressions become regular JavaScript objects. This means that you can use JSX inside of if statements and for loops, assign it to variables, accept it as arguments, and return it from functions.",
         },
         {
-          question: "What is virtual DOM?",
-          answer:
-            "The virtual DOM (VDOM) is an in-memory representation of Real DOM.",
-        },
-        {
-          question: "What is Babel?",
-          answer: "Babel is a JavaScript compiler",
+          question: "Where do you make Ajax requests in React?",
+          answer: "The componentDidMount lifecycle event",
         },
       ],
     },
-    "724mgp7hm68vzvg2amz1hq": {
-      id: "724mgp7hm68vzvg2amz1hq",
-      title: "HTML",
+    "6h5ims9iks66d4m7kqizmd": {
+      id: "6h5ims9iks66d4m7kqizmd",
+      title: "Redux",
+      createdAt: new Date("10/19/2020"),
       questions: [
         {
-          question: "What does HTML stand for?",
-          answer: "Hyper Text Markup Language",
-        },
-        {
-          question: "What should values always be enclosed in?",
-          answer: "Quotation marks",
-        },
-        {
-          question:
-            "Where do all items for the same web site need to be saved?",
-          answer: "In the same folder",
-        },
-        {
-          question:
-            "What is always a welcome page, and explains the purpose or topic of the site?",
-          answer: "Home Page",
-        },
-      ],
-    },
-    "636jgrwdbhf58lxznh9q79": {
-      id: "636jgrwdbhf58lxznh9q79",
-      title: "CSS",
-      questions: [
-        {
-          question: "What is CSS?",
-          answer: "It describes how the HTML content will be shown on screen.",
-        },
-        {
-          question: "What are gradients in CSS?",
+          question: "What is Redux?",
           answer:
-            "It is a property of CSS which allows you to display a smooth transformation between two or more than two specified colors.",
+            "Redux is a predictable state container for JavaScript apps based on the Flux design pattern. Redux can be used together with ReactJS, or with any other view library. It is tiny (about 2kB) and has no dependencies.",
         },
         {
-          question: "What is a CSS pseudo-class?",
+          question: "How to structure Redux top level directories?",
           answer:
-            "It is a class that is used to define a special state of an HTML element.",
+            "Most of the applications has several top-level directories as below 1. Components Used for “dumb” React components unaware of Redux 2. Containers Used for “smart” React components connected to Redux 3. Actions Used for all action creators, where file name corresponds to part of the app 4. Reducers Used for all reducers, where file name corresponds to state key 5. Store Used for store initialization This structure works well for small and mid-level size apps.",
         },
         {
-          question: "What is CSS opacity?",
+          question: "What is Redux Thunk?",
           answer:
-            "It is the property that elaborates on the transparency of an element.",
-        },
-      ],
-    },
-    sxbjgrwdbhf58lxznh9q79: {
-      id: "sxbjgrwdbhf58lxznh9q79",
-      title: "Capital Cities",
-      questions: [
-        {
-          question: "What is the capital city of Germany?",
-          answer: "Berlin",
-        },
-        {
-          question: "What is the capital city of France?",
-          answer: "Paris",
-        },
-        {
-          question: "What is the capital city of Belgium?",
-          answer: "Brüssel",
-        },
-        {
-          question: "What is the capital city of Netherlands?",
-          answer: "Amsterdam",
-        },
-        {
-          question: "What is the capital city of Portugal?",
-          answer: "Lisbon",
+            "Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met. The inner function receives the store methods dispatch and getState() as parameters.",
         },
       ],
     },
