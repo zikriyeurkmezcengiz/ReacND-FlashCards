@@ -61,9 +61,8 @@ class NewDeck extends React.Component {
                   <Button
                     mode="contained"
                     onPress={() => this.onAddCreateDeckPress()}
-                    style={styles.button}
                   >
-                    Create New Deck
+                    Create A New Deck
                   </Button>
                 </Card.Actions>
               </Card>
@@ -95,16 +94,18 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(NewDeck);
 
 const styles = StyleSheet.create({
+  cardContent: {
+    paddingBottom: 20,
+    paddingTop: 20,
+  },
   container: {
     flex: 1,
     backgroundColor: white,
     paddingTop: 10,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   card: {
     flex: 1,
-  },
-  cardContent: {
-    paddingTop: 30,
-    paddingBottom: 30,
   },
 });

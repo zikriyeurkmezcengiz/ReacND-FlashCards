@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Button as PaperButton } from "react-native-paper";
 import { DefaultTheme } from "react-native-paper";
+import { orange } from "../utils/colors";
 
 const Button = ({ mode, style, children, ...props }) => (
   <PaperButton

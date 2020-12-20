@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
-import { DefaultTheme, Colors } from "react-native-paper";
+import { purple } from "../utils/colors";
 
 const TextLabel = ({ style, children }) => (
   <Text style={styles.header}>{children}</Text>
@@ -9,7 +9,7 @@ const TextLabel = ({ style, children }) => (
 const styles = StyleSheet.create({
   header: {
     fontSize: 18,
-    color: Colors.purple900,
+    color: purple,
     fontWeight: "bold",
     paddingTop: 16,
     paddingBottom: 4,

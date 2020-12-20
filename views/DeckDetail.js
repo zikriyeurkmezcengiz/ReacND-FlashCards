@@ -1,19 +1,14 @@
 import * as React from "react";
-import { StyleSheet, View } from "react-native";
-import { Button as PaperButton, Colors } from "react-native-paper";
+import { StyleSheet, View, Text } from "react-native";
+import { Button as PaperButton } from "react-native-paper";
 import Main from "../components/Main";
 import TextLabel from "../components/TextLabel";
 import { connect } from "react-redux";
 import { handleDeleteDeck } from "../store/actions/decks";
-import Header from "../components/Header";
 import Button from "../components/Button";
-import Paragraph from "../components/Paragraph";
+import { red, purple } from "../utils/colors";
 
 class DeckDetail extends React.Component {
-  // static navigationOptions = ({ navigation }) => {
-  //   const { title } = navigation.state.params;
-  // };
-
   onAddCardPress(id) {
     this.props.navigation.navigate("AddCard", {
       deckId: id,
@@ -44,9 +39,8 @@ class DeckDetail extends React.Component {
         <Main>
           <View style={styles.container}>
             <TextLabel style={styles.deckTitle}>{deck.title}</TextLabel>
-            <Paragraph style={styles.deckCardCount}>
-              {deck.questions.length} cards
-            </Paragraph>
+            <Text style={styles.text}> {deck.questions.length} cards</Text>
+
             <Button
               mode="contained"
               disabled={deck.questions.length > 0 ? false : true}
@@ -64,7 +58,7 @@ class DeckDetail extends React.Component {
 
             <PaperButton
               style={styles.buttonDeleteDeck}
-              labelStyle={styles.buttonDeleteDeckLabel}
+              labelStyle={styles.deleteButtonLabel}
               mode="text"
               onPress={() => this.onDeleteDeckPress(deck.id)}
             >
@@ -89,9 +83,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  buttonDeleteDeckLabel: {
-    color: Colors.red500,
-    textTransform: "none",
+  deleteButtonLabel: {
+    color: red,
+  },
+  buttonDeleteDeck: {
+    paddingTop: 20,
+  },
+  text: {
+    fontSize: 18,
+    lineHeight: 26,
+    color: purple,
+    textAlign: "center",
+    marginBottom: 14,
   },
 });
 

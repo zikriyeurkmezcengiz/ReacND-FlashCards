@@ -12,7 +12,7 @@ import { clearLocalNotification, setLocalNotification } from "../utils/helper";
 import TextLabel from "../components/TextLabel";
 import Main from "../components/Main";
 import Button from "../components/Button";
-import Paragraph from "../components/Paragraph";
+import { white, orange, green, red, purple } from "../utils/colors";
 
 class Quiz extends React.Component {
   state = {
@@ -150,20 +150,33 @@ class Quiz extends React.Component {
           <FAB
             style={[
               styles.fab,
-              styles.fabLeft,
+              styles.fabWrong,
               this.state.actionsDisabled && {
                 opacity: this.state.actionsFadeValue,
               },
             ]}
             disabled={this.state.actionsDisabled}
-            color={Colors.red500}
+            color={red}
             icon="thumb-down"
             onPress={() => this.handleMarkQuestion(false)}
           />
           <FAB
             style={[
               styles.fab,
-              styles.fabRight,
+              styles.fabShowAnswer,
+              this.state.actionsDisabled && {
+                opacity: this.state.actionsFadeValue,
+              },
+            ]}
+            disabled={this.state.actionsDisabled}
+            color={white}
+            icon="eye"
+            onPress={() => this.handleCardFlip()}
+          />
+          <FAB
+            style={[
+              styles.fab,
+              styles.fabCorrect,
               this.state.actionsDisabled && {
                 opacity: this.state.actionsFadeValue,
               },
@@ -183,13 +196,15 @@ class Quiz extends React.Component {
       <Main>
         <View style={styles.quizCompletedContainer}>
           <TextLabel style={styles.deckTitle}>Quiz Completed</TextLabel>
-          <Paragraph style={styles.deckCardCount}>
+          <Text style={styles.text}>
+            {" "}
             You have answered{" "}
             {Math.round(
               (this.state.correctCount / this.props.deck.questions.length) * 100
             )}
             % correct
-          </Paragraph>
+          </Text>
+
           <Button mode="contained" onPress={() => this.restartQuiz()}>
             Restart Quiz
           </Button>
@@ -266,10 +281,10 @@ const styles = StyleSheet.create({
     position: "relative",
   },
   card1: {
-    backgroundColor: Colors.purple900,
+    backgroundColor: orange,
   },
   card2: {
-    backgroundColor: Colors.purple500,
+    backgroundColor: green,
   },
   label: {
     textAlign: "center",
@@ -277,8 +292,8 @@ const styles = StyleSheet.create({
     padding: 20,
     fontFamily: "System",
   },
-  label1: { color: Colors.white },
-  label2: { color: Colors.white },
+  label1: { color: white },
+  label2: { color: white },
   fab: {
     position: "absolute",
     margin: 60,
@@ -288,20 +303,20 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     backgroundColor: "#FFF",
   },
-  fabCenter: {
-    marginBottom: 50,
+  fabShowAnswer: {
     borderWidth: 0,
-    backgroundColor: Colors.purple500,
+    backgroundColor: green,
+    marginBottom: 25,
   },
-  fabLeft: {
+  fabWrong: {
     left: 0,
     marginBottom: 20,
-    borderColor: Colors.red500,
+    borderColor: red,
   },
-  fabRight: {
+  fabCorrect: {
     right: 0,
     marginBottom: 20,
-    borderColor: Colors.green500,
+    borderColor: green,
   },
   quizCompletedContainer: {
     flex: 1,
@@ -317,5 +332,12 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 10,
     color: Colors.grey500,
+  },
+  text: {
+    fontSize: 18,
+    lineHeight: 26,
+    color: purple,
+    textAlign: "center",
+    marginBottom: 14,
   },
 });
