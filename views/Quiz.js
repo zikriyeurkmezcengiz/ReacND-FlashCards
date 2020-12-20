@@ -8,7 +8,7 @@ import { Colors, FAB, Text } from "react-native-paper";
 import CardFlip from "react-native-card-flip";
 import { connect } from "react-redux";
 import { handleDeleteDeck } from "../store/actions/decks";
-import { clearLocalNotification, setLocalNotification } from "../utils/helper";
+import { addQuizData } from "../utils/api";
 import TextLabel from "../components/TextLabel";
 import Main from "../components/Main";
 import Button from "../components/Button";
@@ -74,14 +74,13 @@ class Quiz extends React.Component {
                   actionsDisabled: false,
                 };
               });
+              addQuizData();
             }.bind(this),
             400
           );
         }.bind(this),
         1000
       );
-    } else {
-      setupNotificaiton();
     }
   }
 
@@ -104,10 +103,6 @@ class Quiz extends React.Component {
     if (!this.state.cardRotated) {
       this.handleCardFlip();
     }
-  }
-
-  setupNotificaiton() {
-    clearLocalNotification().then(setLocalNotification);
   }
 
   renderQuiz() {

@@ -2,6 +2,7 @@ import { AsyncStorage } from "react-native";
 import { generateUID } from "./helper";
 
 const FLASHCARDS_STORAGE_KEY = "flashcards_data";
+const QUIZ_STORAGE_KEY = "flashcards_quiz_data";
 
 function initialData() {
   return {
@@ -139,3 +140,18 @@ export async function removeDeck(deckId) {
   }
   return {};
 }
+
+export const addQuizData = async () => {
+  let data = {
+    lastAttemptedAt: new Date(),
+  };
+  await AsyncStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(data));
+  // Clear All Notifs
+  clearLocalNotifications();
+};
+
+// Get Quiz Data
+export const getQuizData = async () => {
+  let data = await AsyncStorage.getItem(QUIZ_STORAGE_KEY);
+  return JSON.parse(data);
+};

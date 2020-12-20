@@ -2,10 +2,24 @@ import * as React from "react";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 import { connect } from "react-redux";
 import { handleGetAllDecks } from "../store/actions/decks";
+import { getQuizData } from "../utils/api";
+import { clearLocalNotification, setLocalNotification } from "../utils/helper";
 
 class Main extends React.Component {
   componentDidMount() {
     this.props.initilizeData();
+
+    getQuizData().then((data) => {
+      if (data !== null) {
+        const { lastAttemptedAt } = data;
+        if (
+          new Date(lastAttemptedAt).toDateString() !== new Date().toDateString()
+        )
+          clearLocalNotification().then(setLocalNotification);
+      } else {
+        clearLocalNotification().then(setLocalNotification);
+      }
+    });
   }
 
   render() {
